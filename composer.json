@@ -1,0 +1,48 @@
+{
+    "name": "kipchak/driver-vector",
+    "type": "library",
+    "description": "A vector database driver for semantic search and RAG with Qdrant, pgvector or OpenSearch from the Kipchak API Development Kit (ADK)",
+    "keywords": [
+        "APIs",
+        "Vector Database",
+        "Embeddings",
+        "RAG",
+        "Qdrant",
+        "pgvector",
+        "OpenSearch",
+        "Microservices",
+        "Mamluk"
+    ],
+    "homepage": "https://mamluk.net",
+    "license": "MIT",
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Kipchak\\Driver\\Vector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kipchak\\Driver\\Vector\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.4",
+        "kipchak/core": "^2 || ^3",
+        "kipchak/driver-config": "^1",
+        "kipchak/driver-http": "^2.10"
+    },
+    "require-dev": {
+        "doctrine/dbal": "^4",
+        "openai-php/client": "^0.20",
+        "phpunit/phpunit": "^12"
+    },
+    "suggest": {
+        "kipchak/driver-doctrine": "For the pgvector store: its DBAL connection is used",
+        "kipchak/driver-openai": "For embeddings with upsertTexts() and searchText()"
+    }
+}

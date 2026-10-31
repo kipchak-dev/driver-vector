@@ -1,0 +1,29 @@
+# Vector stores for the integration tests: Qdrant (API key), pgvector and OpenSearch with the k-NN plugin.
+name: kipchak-vector-tests
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.15.4
+    environment:
+      QDRANT__SERVICE__API_KEY: kipchak-qdrant-key
+    ports:
+      - "56333:6333"
+
+  pgvector:
+    image: pgvector/pgvector:0.8.1-pg17
+    environment:
+      POSTGRES_USER: kipchak
+      POSTGRES_PASSWORD: kipchak-password
+      POSTGRES_DB: vectors
+    ports:
+      - "55432:5432"
+
+  opensearch:
+    image: opensearchproject/opensearch:2.19.3
+    environment:
+      discovery.type: single-node
+      DISABLE_SECURITY_PLUGIN: "true"
+      DISABLE_INSTALL_DEMO_CONFIG: "true"
+      OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m"
+    ports:
+      - "59200:9200"
