@@ -46,8 +46,8 @@ use Kipchak\Driver\Vector\Vector;
 Vector::initialise($container);
 ```
 
-pgvector needs PHP's `pdo_pgsql` extension, which is not in the default Kipchak runtime image. Add it to your
-image with `RUN install-php-extensions pdo_pgsql`.
+pgvector needs PHP's `pdo_pgsql` extension, which every Kipchak runtime image includes. On another image, add it
+with `RUN install-php-extensions pdo_pgsql`.
 
 ## Configuration
 
