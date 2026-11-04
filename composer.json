@@ -44,5 +44,20 @@
     "suggest": {
         "kipchak/driver-doctrine": "For the pgvector store: its DBAL connection is used",
         "kipchak/driver-openai": "For embeddings with upsertTexts() and searchText()"
+    },
+    "extra": {
+        "kipchak": {
+            "type": "driver",
+            "config": "sample.config.php",
+            "configName": "kipchak.vector.php",
+            "initialise": "\\Kipchak\\Driver\\Vector\\Vector::initialise($container);",
+            "after": [
+                "kipchak/driver-config",
+                "kipchak/driver-logger",
+                "kipchak/driver-http"
+            ],
+            "before": [],
+            "docs": "https://kipchak.dev/docs/driver-vector"
+        }
     }
 }
